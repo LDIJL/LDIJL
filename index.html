@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es" >
+<head>
+  <title>Iniciar sesión</title>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+    
+    h2 {
+      text-align: center;
+      animation: colorChange 5s infinite;
+    }
+    
+    @keyframes colorChange {
+      0%, 50% {
+        color: black;
+      }
+      25%, 75% {
+        color: blue;
+      }
+      100% {
+        color: green;
+      }
+    }
+    
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    label {
+      font-weight: bold;
+    }
+    
+    input[type="text"],
+    input[type="password"] {
+      width: 200px;
+      padding: 5px;
+      transition: color 0.3s;
+    }
+    
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+      color: green;
+    }
+    
+    input[type="button"] {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    input[type="button"]:hover {
+      background-color: #0056b3;
+    }
+    
+    .loading {
+      display: none;
+      margin-top: 20px;
+      font-weight: bold;
+      color: #007bff;
+      animation: loadingAnimation 2s infinite;
+    }
+    
+    @keyframes loadingAnimation {
+      0% {
+        content: "Cargando";
+      }
+      50% {
+        content: "Cargando.";
+      }
+      100% {
+        content: "Cargando..";
+      }
+    }
+    
+    .success {
+      color: green;
+    }
+  </style>
+  <script>
+    function login() {
+      var usuarios = ["usuario1", "usuario2", "usuario3", "usuario4", "usuario5", "usuario6", "usuario7", "usuario8", "usuario9", "usuario10", "usuario11", "usuario12"];
+      var contrasenas = ["contrasena1", "contrasena2", "contrasena3", "contrasena4", "contrasena5", "contrasena6", "contrasena7", "contrasena8", "contrasena9", "contrasena10", "contrasena11", "contrasena12"];
+
+      var usuarioIngresado = document.getElementById("usuario").value;
+      var contrasenaIngresada = document.getElementById("contrasena").value;
+
+      // Verificar si el usuario y la contraseña coinciden
+      var index = usuarios.indexOf(usuarioIngresado);
+      if (index !== -1 && contrasenas[index] === contrasenaIngresada) {
+        // Inicio de sesión exitoso, redireccionar a la página deseada
+        window.location.href = "file:///C:/Program%20Files/Sublime%20Text%203/menu.html";
+      } else {
+        // Mostrar mensaje de error
+        alert("Usuario o contraseña incorrectos. Por favor, intenta de nuevo.");
+      }
+    }
+  </script>
+</head>
+<body bgcolor="gray">
+  <form>
+      <h2>Iniciar sesion</h2><br>
+    <label for="usuario">Usuario:</label><br>
+    <input type="text" id="usuario" required><br><br>
+    <label for="contrasena">Contrasena:</label>
+    <input type="password" id="contrasena" required><br><br>
+    <input type="button" value="Iniciar sesion" onclick="login()">
+  </form>
+</body>
+</html>
